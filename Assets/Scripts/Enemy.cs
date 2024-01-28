@@ -7,14 +7,14 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyAnimator _animator;
     [SerializeField] private float _speed;
 
-    public TargetPoint TargetPoint;
+    public Vector3 TargetPoint;
 
     private Vector3 _destinationPoint;
     private bool _inPlace;
 
     private void Start()
     {
-        _destinationPoint = TargetPoint.GetPosition();
+        _destinationPoint = TargetPoint;
         transform.LookAt(_destinationPoint);
     }
 
@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
 
     private void GetInLine()
     {
-        transform.rotation = TargetPoint.transform.rotation;
+        Quaternion orientation = Quaternion.Euler(0, -90, 0);
+        transform.rotation = orientation;
     }
 }

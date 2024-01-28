@@ -8,7 +8,7 @@ public class TargetPoint : MonoBehaviour
     private int _currentNumberInRow = 0;
     private Vector3 _firstPosition;
 
-    private void Start()
+    private void Awake()
     {
         _firstPosition = transform.position;
     }
