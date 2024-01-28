@@ -195,8 +195,8 @@ MonoBehaviour:
   - {fileID: 1064525740}
   - {fileID: 200638625}
   - {fileID: 1267682849}
-  _enemy: {fileID: 7448344874300950015, guid: 6f87ee388c09437468176169d81e9cd0, type: 3}
-  _delay: 2
+  _enemy: {fileID: -4698315976110430928, guid: 6f87ee388c09437468176169d81e9cd0, type: 3}
+  _delayTime: 2
   _maxCount: 100
 --- !u!4 &429829092
 Transform:
@@ -206,7 +206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429829090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27186766, y: -4.5933075, z: 2.7132683}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

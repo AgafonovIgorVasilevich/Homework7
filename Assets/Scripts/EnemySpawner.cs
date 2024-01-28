@@ -5,8 +5,8 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private TargetPoint[] _targetPoints;
     [SerializeField] private Transform[] _spawnPoints;
-    [SerializeField] private GameObject _enemy;
-    [SerializeField] private float _delay = 2f;
+    [SerializeField] private Enemy _enemy;
+    [SerializeField] private float _delayTime = 2f;
     [SerializeField] private int _maxCount = 100;
 
     private void Start()
@@ -16,19 +16,20 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemy()
     {
+        WaitForSeconds delay = new WaitForSeconds(_delayTime);
         int currentCount = 0;
 
         while (currentCount < _maxCount)
         {
             Transform spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
             TargetPoint targetPoint = _targetPoints[Random.Range(0, _targetPoints.Length)];
-            GameObject enemy = Instantiate(_enemy);
+            Enemy enemy = Instantiate(_enemy);
 
             enemy.transform.position = spawnPoint.position;
-            enemy.GetComponent<EnemyMovement>().TargetPoint = targetPoint;
+            enemy.TargetPoint = targetPoint;
             currentCount++;
 
-            yield return new WaitForSeconds(_delay);
+            yield return delay;
         }
     }
 }

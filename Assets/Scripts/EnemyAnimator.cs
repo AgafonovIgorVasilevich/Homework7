@@ -1,5 +1,7 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+
 public class EnemyAnimator : MonoBehaviour
 {
     private const string IsStay = nameof(IsStay);
