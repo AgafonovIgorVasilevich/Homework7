@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
             Enemy enemy = Instantiate(_enemy);
 
             enemy.transform.position = spawnPoint.position;
-            enemy.TargetPoint = targetPoint.GetPosition();
+            enemy.SetDirection(targetPoint.GetPosition());
             currentCount++;
 
             yield return delay;
