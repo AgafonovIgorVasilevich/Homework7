@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private TargetPoint[] _targetPoints;
+    [SerializeField] private Transform[] _targetPoints;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private Enemy _enemy;
     [SerializeField] private float _delayTime = 2f;
@@ -18,15 +18,19 @@ public class EnemySpawner : MonoBehaviour
     {
         WaitForSeconds delay = new WaitForSeconds(_delayTime);
         int currentCount = 0;
+        Vector3 spawnPoint;
+        Vector3 targetPoint;
 
         while (currentCount < _maxCount)
         {
-            Transform spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
-            TargetPoint targetPoint = _targetPoints[Random.Range(0, _targetPoints.Length)];
             Enemy enemy = Instantiate(_enemy);
 
-            enemy.transform.position = spawnPoint.position;
-            enemy.transform.LookAt(targetPoint.GetPosition());
+            spawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)].position;
+            targetPoint = _targetPoints[Random.Range(0, _targetPoints.Length)].position;
+
+            enemy.transform.position = spawnPoint;
+            enemy.transform.LookAt(targetPoint);
+
             currentCount++;
 
             yield return delay;
